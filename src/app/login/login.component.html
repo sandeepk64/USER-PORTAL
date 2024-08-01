@@ -1,0 +1,26 @@
+<div style="height: 88vh;margin-left:200px;" class="d-flex align-items-center justify-content-center w-75">
+    <div class="shadow bg-dark row rounded p-5 align-items-center">
+        <div class="col-lg-6">
+            <img src="https://cdn.dribbble.com/uploads/35325/original/41d389361922354e566570cadfce8d0a.png?1648831399" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <form (ngSubmit)="login()"  #loginForm="ngForm"  class="rounded p-5 border">
+                <div class="form-floating mb-3">
+                    <input #useremail="ngModel" name="email" [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" email required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div *ngIf="useremail.invalid && useremail.touched" class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                <div class="form-floating mb-3">
+                    <input #userpswd="ngModel" name="password" [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" pattern="[a-zA-Z0-9]*" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div *ngIf="userpswd.invalid && userpswd.touched" class="text-danger fw-bolder mb-3">*Invalid Password</div>
+
+                <div class="d-grid">
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
